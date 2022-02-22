@@ -1,0 +1,29 @@
+{
+  "name": "wanted-codestates-project-7-10",
+  "version": "1.0.0",
+  "repository": "https://github.com/jinyongp/wanted-codestates-project-7-10.git",
+  "author": "jinyongp <dev.jinyongp@gmail.com>",
+  "license": "MIT",
+  "description": "검색어 추천이 있는 검색창 구현",
+  "scripts": {
+    "start:dev": "webpack serve --env development",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
+    "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  }
+}
