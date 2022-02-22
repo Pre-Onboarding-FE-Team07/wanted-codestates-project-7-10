@@ -4,8 +4,7 @@ const RecommendAreaStyled = styled.div`
   display: ${({ show }) => (show ? 'block' : 'none')};
   background-color: #fff;
   border-radius: 17px;
-  width: 660px;
-  margin: 9px auto 0;
+  margin: 0 auto;
   padding: 25px;
   box-sizing: border-box;
 `;

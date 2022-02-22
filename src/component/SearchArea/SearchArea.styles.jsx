@@ -2,6 +2,23 @@ import styled from 'styled-components';
 
 const SearchAreaStyled = styled.div`
   padding-top: 80px;
+  margin: 0 auto;
+  width: ${({ isPC }) => (isPC ? '660px' : 'calc(100vw - 40px)')};
+
+  ${({ isPC }) =>
+    !isPC &&
+    `
+  .title-responsive {
+    font-size: 1.25rem;
+  }
+  .searchbar-responsive > div {
+    padding: 12px 20px;
+    justify-content: space-between;
+    svg {
+      margin: 0;
+      cursor: pointer;
+    }
+  }`}
 `;
 
 export const Title = styled.h1`
@@ -16,10 +33,9 @@ export const Title = styled.h1`
 export const SearchBar = styled.div`
   display: flex;
   flex-direction: row;
-  width: 660px;
   background-color: #fff;
   border-radius: 42px;
-  margin: 0 auto;
+  margin: 0 auto 12px;
 `;
 
 SearchBar.Box = styled.div`
@@ -27,11 +43,14 @@ SearchBar.Box = styled.div`
   display: flex;
   align-items: center;
   padding: 20px 24px;
+  position: relative;
+  svg {
+    margin-right: 12px;
+  }
   input {
     border: 0;
     background-color: transparent;
     line-height: 1.5;
-    margin-left: 12px;
     font-size: 100%;
     line-height: 1.15;
     color: #111;
