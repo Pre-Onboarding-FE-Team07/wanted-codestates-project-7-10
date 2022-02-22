@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchAreaStyled, { Title, SearchBar } from './SearchArea.styles.jsx';
 import SearchIcon from '../../assets/icon_search.svg';
+import RecommendArea from '../RecommendArea/RecommendArea.jsx';
 
 const SearchArea = () => {
   return (
@@ -17,6 +18,8 @@ const SearchArea = () => {
         </SearchBar.Box>
         <SearchBar.Button type="button">검색</SearchBar.Button>
       </SearchBar>
+      {/* show true/false에 따라 RecommendArea display 속성 변경 */}
+      <RecommendArea show />
     </SearchAreaStyled>
   );
 };
