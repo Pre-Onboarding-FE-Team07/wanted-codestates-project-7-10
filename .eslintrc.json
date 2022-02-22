@@ -18,6 +18,20 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "settings": {
+    "react": {
+      "version": "latest"
+    },
+    "import/resolver": {
+      "node": { "extensions": [".js", ".jsx"] }
+    }
+  },
   "plugins": ["react"],
-  "rules": {}
+  "rules": {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      { "js": "never", "jsx": "never" }
+    ]
+  }
 }
