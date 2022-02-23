@@ -18,20 +18,20 @@ const RecommendArea = ({ show }) => {
     return (
       <RecommendAreaStyled show={show}>
         <Info>추천 검색어</Info>
-        {result &&
-          result.map((data, idx) => (
-            <Recommends key={idx}>
-              <Recommend id={data.id} content={data.name} />
-            </Recommends>
-          ))}
+        <Recommends>
+          {result &&
+            result.map((item) => (
+              <Recommend key={item.id} content={item.name} />
+            ))}
+        </Recommends>
       </RecommendAreaStyled>
     );
   }
   return null;
 };
-
 RecommendArea.propTypes = {
   show: PropTypes.bool,
+  data: PropTypes.array,
 };
 
 const RecommendAreaStyled = styled.div`
