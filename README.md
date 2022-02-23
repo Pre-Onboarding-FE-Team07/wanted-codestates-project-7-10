@@ -8,8 +8,8 @@
 * 로컬
 
 1) `git clone https://github.com/Pre-Onboarding-FE-Team07/wanted-codestates-project-7-10.git`
-2) `yarn i`
-3) `yarn run start`
+2) `yarn`
+3) `yarn start:dev`
 
 
 ## 프로젝트 구조
