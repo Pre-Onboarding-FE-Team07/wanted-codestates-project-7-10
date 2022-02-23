@@ -6,24 +6,24 @@ import { useSelector } from 'react-redux';
 
 const RecommendArea = ({ show }) => {
   const result = useSelector((state) => state.search.success);
-
-  if (result && result.length === 0) {
+  const isSearching = useSelector((state) => state.search.searching);
+  if (isSearching) {
     return (
       <RecommendAreaStyled show={show}>
-        <Info>검색어 없음</Info>
-      </RecommendAreaStyled>
-    );
-  }
-  if (result && result.length > 0) {
-    return (
-      <RecommendAreaStyled show={show}>
-        <Info>추천 검색어</Info>
-        <Recommends>
-          {result &&
-            result.map((item) => (
-              <Recommend key={item.id} content={item.name} />
-            ))}
-        </Recommends>
+        <Info>
+          {result
+            ? result.length > 0
+              ? '추천 검색어'
+              : '검색어 없음'
+            : '검색 중...'}
+        </Info>
+        {result &&
+          result.length > 0 &&
+          result.map((data, idx) => (
+            <Recommends key={idx}>
+              <Recommend id={data.id} content={data.name} />
+            </Recommends>
+          ))}
       </RecommendAreaStyled>
     );
   }

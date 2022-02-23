@@ -1,23 +1,43 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
 import RecommendArea from './RecommendArea/RecommendArea';
 import SearchIcon from '../assets/icon_search.svg';
 import { useDispatch } from 'react-redux';
-import { searchResult } from '../redux/actions/search';
+import { isSearching, searchResult } from '../redux/actions/search';
+import debounce from '../utilities/debounce';
 
 const SearchArea = () => {
   const isPC = useMediaQuery({ query: '(min-width: 1040px)' });
 
   // redux의 action -> state 변경하는 로직
   const dispatch = useDispatch();
+  const debounceHandler = useCallback(
+    debounce((value) => updateResult(value), 500),
+    []
+  );
+
   // input에 있는 값 가져오는 onChange 함수
-  const onchangeValue = (e) => {
-    dispatch(searchResult(e.target.value));
-  };
+  const onchangeValue = useCallback(
+    (e) => {
+      if (e.target.value.replace(/\s/gi, "") === "") {
+        dispatch(searchResult(null));
+        dispatch(isSearching(false));
+      }
+      else {
+        dispatch(isSearching(true));
+        debounceHandler(e.target.value);
+      }
+    },
+    [debounceHandler]
+  );
+
+  const updateResult = useCallback((value) => {
+    dispatch(searchResult(value));
+  });
 
   // 검색 버튼 누르면 동작하는 event함수
-  const onSearch = () => {};
+  const onSearch = () => { };
 
   return (
     <SearchAreaStyled isPC={isPC}>

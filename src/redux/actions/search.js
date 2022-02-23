@@ -1,5 +1,5 @@
 import axios from '../../utilities/axiosCached';
-import { SEARCH_RESULT } from './types';
+import { SEARCH_RESULT, IS_SEARCHING } from './types';
 
 export const searchResult = async (searchValue) => {
   const request = await axios
@@ -12,5 +12,12 @@ export const searchResult = async (searchValue) => {
   return {
     type: SEARCH_RESULT,
     payload: request,
+  };
+};
+
+export const isSearching = async (state) => {
+  return {
+    type: IS_SEARCHING,
+    payload: state,
   };
 };
