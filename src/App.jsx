@@ -4,9 +4,9 @@ import GlobalStyle from './App.styles';
 
 export default function App() {
   return (
-    <div>
+    <>
       <SearchArea />
       <GlobalStyle />
-    </div>
+    </>
   );
 }
