@@ -1,8 +1,6 @@
 import { SEARCH_RESULT } from '../actions/types';
 
-const initialState = {};
-
-export default function search(state = initialState, action) {
+export default function search(state = {}, action) {
   switch (action.type) {
     case SEARCH_RESULT:
       return {
