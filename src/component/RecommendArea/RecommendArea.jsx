@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import Recommend from './Recommend';
-import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 const RecommendArea = ({ show }) => {
   const result = useSelector((state) => state.search.success);
-
   if (result && result.length === 0) {
     return (
       <RecommendAreaStyled show={show}>
@@ -18,18 +17,17 @@ const RecommendArea = ({ show }) => {
     return (
       <RecommendAreaStyled show={show}>
         <Info>추천 검색어</Info>
-        {result &&
-          result.map((data, idx) => (
-            <Recommends key={idx}>
-              <Recommend id={data.id} content={data.name} />
-            </Recommends>
-          ))}
+        <Recommends>
+          {result &&
+            result.map((item) => (
+              <Recommend key={item.id} content={item.name} />
+            ))}
+        </Recommends>
       </RecommendAreaStyled>
     );
   }
   return null;
 };
-
 RecommendArea.propTypes = {
   show: PropTypes.bool,
   data: PropTypes.array,
