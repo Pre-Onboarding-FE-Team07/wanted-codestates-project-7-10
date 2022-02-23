@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Recommend from './Recommend';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 const RecommendArea = ({ show }) => {
   const result = useSelector((state) => state.search.success);
