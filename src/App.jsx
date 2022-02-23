@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchArea from './component/SearchArea/SearchArea.jsx';
+import SearchArea from './component/SearchArea/SearchArea';
 import { createGlobalStyle } from 'styled-components';
 
 export default function App() {

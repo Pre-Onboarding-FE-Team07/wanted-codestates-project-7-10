@@ -1,9 +1,6 @@
 import React from 'react';
-import Recommend from './Recommend.jsx';
-import RecommendAreaStyled, {
-  Info,
-  Recommends,
-} from './RecommendArea.styles.jsx';
+import Recommend from './Recommend';
+import RecommendAreaStyled, { Info, Recommends } from './RecommendArea.styles';
 import PropTypes from 'prop-types';
 
 const RecommendArea = ({ show }) => {

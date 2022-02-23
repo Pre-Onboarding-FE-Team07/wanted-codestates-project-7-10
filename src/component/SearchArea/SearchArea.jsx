@@ -1,8 +1,8 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import SearchAreaStyled, { Title, SearchBar } from './SearchArea.styles.jsx';
+import SearchAreaStyled, { Title, SearchBar } from './SearchArea.styles';
 import SearchIcon from '../../assets/icon_search.svg';
-import RecommendArea from '../RecommendArea/RecommendArea.jsx';
+import RecommendArea from '../RecommendArea/RecommendArea';
 
 const SearchArea = () => {
   const isPC = useMediaQuery({ query: '(min-width: 1040px)' });
