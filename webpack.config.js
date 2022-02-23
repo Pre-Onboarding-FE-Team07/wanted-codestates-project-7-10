@@ -25,6 +25,8 @@ module.exports = {
         exclude: '/node_modules',
         loader: 'babel-loader',
         options: {
+          compact: true,
+          minified: true,
           presets: [
             [
               '@babel/preset-env',
