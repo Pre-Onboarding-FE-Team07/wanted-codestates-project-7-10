@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
 import RecommendArea from './RecommendArea/RecommendArea';
 import SearchIcon from '../assets/icon_search.svg';
+import { useDispatch } from 'react-redux';
+import { searchResult } from '../redux/actions/search';
 
 const SearchArea = () => {
   const isPC = useMediaQuery({ query: '(min-width: 1040px)' });
@@ -13,9 +15,7 @@ const SearchArea = () => {
   const onchangeValue = (e) => {
     dispatch(searchResult(e.target.value));
   };
-  // 검색 버튼 누르면 동작하는 event함수
-  const onSearch = () => {};
-  
+
   return (
     <SearchAreaStyled isPC={isPC}>
       <Title className="title-responsive">
@@ -26,7 +26,11 @@ const SearchArea = () => {
       <SearchBar className="searchbar-responsive">
         <SearchBar.Box>
           {isPC && <SearchIcon />}
-          <input type="text" placeholder="질환명을 입력해 주세요. " />
+          <input
+            type="text"
+            placeholder="질환명을 입력해 주세요. "
+            onChange={onchangeValue}
+          />
           {!isPC && <SearchIcon />}
         </SearchBar.Box>
         {isPC && <SearchBar.Button type="button">검색</SearchBar.Button>}
