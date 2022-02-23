@@ -1,32 +1,28 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { searchResult } from '../redux/actions/search';
 
 export default function useUserInput(data) {
-  const [active, setActive] = useState({
-    activeIndex: -1,
-    userInput: '',
-  });
+  const inputRef = useRef();
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const dispatch = useDispatch();
 
   const onKeyDown = (e) => {
-    const { activeIndex } = active;
+    if (e.keyCode === 229) return;
     if (e.key === 'Enter') {
-      setActive({
-        activeIndex: -1,
-        userInput: data[activeIndex].content,
-      });
+      inputRef.current.value = data[activeIndex].name;
+      setActiveIndex(-1);
+      dispatch(searchResult(data[activeIndex].name));
     } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
       if (activeIndex === 0) return;
-      setActive({ ...active, activeIndex: activeIndex - 1 });
+      setActiveIndex(activeIndex - 1);
     } else if (e.key === 'ArrowDown') {
-      if (activeIndex >= data.length - 1) {
-        return;
-      }
-      setActive({ ...active, activeIndex: activeIndex + 1 });
+      e.preventDefault();
+      if (activeIndex >= data.length - 1) return;
+      setActiveIndex(activeIndex + 1);
     }
   };
 
-  const onChange = (e) => {
-    setActive({ ...active, userInput: e.target.value });
-  };
-
-  return { onKeyDown, active, setActive, onChange };
+  return { onKeyDown, activeIndex, inputRef };
 }
