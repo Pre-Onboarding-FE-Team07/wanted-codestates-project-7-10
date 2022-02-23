@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 import RecommendArea from './RecommendArea/RecommendArea';
 import SearchIcon from '../assets/icon_search.svg';
 import { useDispatch } from 'react-redux';
-import { searchResult } from '../redux/actions/search';
+import { isSearching, searchResult } from '../redux/actions/search';
 import debounce from '../utilities/debounce';
 
 const SearchArea = () => {
@@ -20,7 +20,14 @@ const SearchArea = () => {
   // input에 있는 값 가져오는 onChange 함수
   const onchangeValue = useCallback(
     (e) => {
-      debounceHandler(e.target.value);
+      if (e.target.value.replace(/\s/gi, "") === "") {
+        dispatch(searchResult(null));
+        dispatch(isSearching(false));
+      }
+      else {
+        dispatch(isSearching(true));
+        debounceHandler(e.target.value);
+      }
     },
     [debounceHandler]
   );

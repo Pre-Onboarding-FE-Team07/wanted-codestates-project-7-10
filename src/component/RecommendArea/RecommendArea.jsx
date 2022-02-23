@@ -7,8 +7,7 @@ import { useSelector } from 'react-redux';
 const RecommendArea = ({ show }) => {
   const result = useSelector((state) => state.search.success);
   const isSearching = useSelector((state) => state.search.searching);
-
-  if (result || isSearching) {
+  if (isSearching) {
     return (
       <RecommendAreaStyled show={show}>
         <Info>
