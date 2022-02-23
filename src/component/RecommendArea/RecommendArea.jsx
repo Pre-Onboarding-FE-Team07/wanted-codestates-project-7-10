@@ -1,25 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
 import Recommend from './Recommend';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 const RecommendArea = ({ show }) => {
-  return (
-    <RecommendAreaStyled show={show}>
-      {/* 추천 검색어 or 검색어 없음*/}
-      <Info>추천 검색어</Info>
-      <Recommends>
-        {/* key: id, content: name */}
-        <Recommend key="125" content="Klatskin's tumor" />
-        <Recommend key="133" content="간세포암" />
-        <Recommend key="187" content="갑상선암종" />
-      </Recommends>
-    </RecommendAreaStyled>
-  );
+  const result = useSelector((state) => state.search.success);
+
+  if (result && result.length === 0) {
+    return (
+      <RecommendAreaStyled show={show}>
+        <Info>검색어 없음</Info>
+      </RecommendAreaStyled>
+    );
+  }
+  if (result && result.length > 0) {
+    return (
+      <RecommendAreaStyled show={show}>
+        <Info>추천 검색어</Info>
+        {result &&
+          result.map((data, idx) => (
+            <Recommends key={idx}>
+              <Recommend id={data.id} content={data.name} />
+            </Recommends>
+          ))}
+      </RecommendAreaStyled>
+    );
+  }
+  return null;
 };
 
 RecommendArea.propTypes = {
   show: PropTypes.bool,
+  data: PropTypes.array,
 };
 
 const RecommendAreaStyled = styled.div`
