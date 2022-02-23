@@ -1,42 +1,32 @@
 import { useState } from 'react';
 
-export default function useUserInput() {
-  const dummyData = [
-    { key: '125', content: "Klatskin's tumor" },
-    { key: '133', content: '간세포암' },
-    { key: '187', content: '갑상선암종' },
-  ];
+export default function useUserInput(data) {
   const [active, setActive] = useState({
-    activeIndex: 0,
+    activeIndex: -1,
     userInput: '',
-    filterData: [],
   });
 
   const onKeyDown = (e) => {
-    const { activeIndex, filterData } = active;
-    console.log(filterData);
-    if (e.keyCode === 13) {
+    const { activeIndex } = active;
+    if (e.key === 'Enter') {
       setActive({
-        activeIndex: 0,
-        userInput: filterData[activeIndex].content,
-        filterData: [],
+        activeIndex: -1,
+        userInput: data[activeIndex].content,
       });
-    } else if (e.keyCode === 38) {
+    } else if (e.key === 'ArrowUp') {
       if (activeIndex === 0) return;
       setActive({ ...active, activeIndex: activeIndex - 1 });
-    } else if (e.keyCode === 40) {
-      if (activeIndex >= filterData.length - 1) {
+    } else if (e.key === 'ArrowDown') {
+      if (activeIndex >= data.length - 1) {
         return;
       }
       setActive({ ...active, activeIndex: activeIndex + 1 });
     }
   };
+
   const onChange = (e) => {
-    const userInput = e.target.value;
-    let filterData = dummyData.filter((el) =>
-      el.content.toLowerCase().includes(userInput)
-    );
-    setActive({ ...active, userInput: e.target.value, filterData: filterData });
+    setActive({ ...active, userInput: e.target.value });
   };
-  return { onKeyDown, onChange, active, setActive };
+
+  return { onKeyDown, active, setActive, onChange };
 }
