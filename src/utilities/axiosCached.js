@@ -11,14 +11,12 @@ const axios = {
       return JSON.parse(cachedResponse);
     }
 
-    /* 캐시에 없는 요청이면 debounce 패턴을 적용하여 요청합니다. */
-    //TODO
-    //const response = await axiosReal(...args);
+    // 캐싱된 응답이 없다면 원본 요청을 실행합니다
+    const response = await axiosReal.get(...args);
 
-    //요청을 마치면 해당 요청을 캐시에 저장합니다.
-    //TODO
-
-    return await axiosReal.get(...args);
+    // 캐싱된 응답을 localStorage에 저장합니다.
+    localStorage.setItem(JSON.stringify(request), JSON.stringify(response));
+    return response;
   },
 };
 
