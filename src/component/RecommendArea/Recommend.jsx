@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import SearchIcon from '../../assets/icon_search.svg';
 
-const Recommend = ({ content }) => {
+const Recommend = ({ content, selected }) => {
   return (
-    <RecommendStyled>
+    <RecommendStyled selected={selected}>
       <SearchIcon />
       {content}
     </RecommendStyled>
@@ -14,16 +14,19 @@ const Recommend = ({ content }) => {
 
 Recommend.propTypes = {
   content: PropTypes.string,
+  selected: PropTypes.bool,
 };
 
 const RecommendStyled = styled.li`
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  line-height: 2.6;
+  background-color: ${({ selected }) => (selected ? `#efefef` : 'inherit')};
+  cursor: pointer;
   svg {
     margin-right: 12px;
   }
-  display: flex;
-  align-items: center;
-  line-height: 2.6;
-  cursor: pointer;
 `;
 
 export default Recommend;
