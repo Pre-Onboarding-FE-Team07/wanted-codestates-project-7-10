@@ -20,18 +20,16 @@ const SearchArea = () => {
   // input에 있는 값 가져오는 onChange 함수
   const onchangeValue = useCallback(
     (e) => {
-      if (e.target.value.replace(/\s/gi, "") === "") {
-        dispatch(searchResult(null));
+      if (e.target.value.replace(/\s/gi, '') === '') {
+        debounceHandler(null);
         dispatch(isSearching(false));
-      }
-      else {
+      } else {
         dispatch(isSearching(true));
         debounceHandler(e.target.value);
       }
     },
     [debounceHandler]
   );
-
   const updateResult = useCallback((value) => {
     dispatch(searchResult(value));
   });
