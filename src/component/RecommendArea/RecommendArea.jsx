@@ -30,9 +30,9 @@ const RecommendArea = ({ show }) => {
   }
   return null;
 };
-
 RecommendArea.propTypes = {
   show: PropTypes.bool,
+  data: PropTypes.array,
 };
 
 const RecommendAreaStyled = styled.div`
