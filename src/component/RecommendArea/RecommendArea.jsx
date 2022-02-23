@@ -1,6 +1,6 @@
 import React from 'react';
+import styled from 'styled-components';
 import Recommend from './Recommend';
-import RecommendAreaStyled, { Info, Recommends } from './RecommendArea.styles';
 import PropTypes from 'prop-types';
 
 const RecommendArea = ({ show }) => {
@@ -21,5 +21,26 @@ const RecommendArea = ({ show }) => {
 RecommendArea.propTypes = {
   show: PropTypes.bool,
 };
+
+const RecommendAreaStyled = styled.div`
+  display: ${({ show }) => (show ? 'block' : 'none')};
+  background-color: #fff;
+  border-radius: 17px;
+  margin: 0 auto;
+  padding: 25px;
+  box-sizing: border-box;
+`;
+
+const Info = styled.div`
+  color: #777;
+  font-size: 0.8rem;
+  font-weight: light;
+  line-height: 1.2;
+  margin-bottom: 2px;
+`;
+
+const Recommends = styled.ul`
+  list-style: none;
+`;
 
 export default RecommendArea;
