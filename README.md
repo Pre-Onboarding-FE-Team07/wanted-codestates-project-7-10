@@ -1,7 +1,16 @@
 # 검색어 추천이 있는 검색창 만들기
 
 ## 실행 방법
+* 배포 사이트
+
 [Humanscape Deploy🩺](https://wanted-codestates-project-7-10.surge.sh/)
+
+* 로컬
+
+1) `git clone https://github.com/Pre-Onboarding-FE-Team07/wanted-codestates-project-7-10.git`
+2) `yarn i`
+3) `yarn run start`
+
 
 ## 프로젝트 구조
 ```
