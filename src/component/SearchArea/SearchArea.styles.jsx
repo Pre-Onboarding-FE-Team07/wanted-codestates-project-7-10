@@ -50,7 +50,6 @@ SearchBar.Box = styled.div`
   input {
     border: 0;
     background-color: transparent;
-    line-height: 1.5;
     font-size: 100%;
     line-height: 1.15;
     color: #111;
