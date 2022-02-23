@@ -13,11 +13,12 @@ const SearchArea = () => {
   const dispatch = useDispatch();
   const [isInputValue, setIsInputValue] = useState('');
   // input에 있는 값 가져오는 onChange 함수
-  const onchangeValue = (e) => setIsInputValue(e.target.value);
-  // 검색 버튼 누르면 동작하는 event함수
-  const onSearch = () => {
+  const onchangeValue = (e) => {
+    setIsInputValue(e.target.value);
     dispatch(searchResult(isInputValue));
   };
+  // 검색 버튼 누르면 동작하는 event함수
+  const onSearch = () => {};
 
   return (
     <SearchAreaStyled isPC={isPC}>

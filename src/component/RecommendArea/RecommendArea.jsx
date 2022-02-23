@@ -8,7 +8,6 @@ const RecommendArea = ({ show }) => {
   // 변경된 state를 useSelector를 통해 가져옴
   const result = useSelector((state) => state.search.success);
 
-  console.log(result);
   if (result && result.length === 0) {
     return (
       <RecommendAreaStyled show={show}>

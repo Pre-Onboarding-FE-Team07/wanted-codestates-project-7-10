@@ -7,7 +7,7 @@ export const searchResult = async (value) => {
     .get(
       `https://api.clinicaltrialskorea.com/api/v1/search-conditions/?name=${value}`
     )
-    .then((response) => response.data)
+    .then((response) => response.data.slice(0, 10))
     .catch((err) => console.log(err));
 
   return {
