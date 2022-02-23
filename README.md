@@ -24,7 +24,7 @@
 | [🔨이예지](https://github.com/Lee-ye-ji) | 팀원 | 검색어 추천 API 호출 - Redux 사용  |
 | [🚚최민우](https://github.com/exxocism) | 팀원 | API 호출 최적화           |
 
-
+ 
 ##  문선경
 
 #### UI 컴포넌트 구현 (검색영역 구현)
