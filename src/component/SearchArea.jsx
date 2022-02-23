@@ -30,7 +30,7 @@ const SearchArea = () => {
   });
 
   // 검색 버튼 누르면 동작하는 event함수
-  const onSearch = () => {};
+  const onSearch = () => { };
 
   return (
     <SearchAreaStyled isPC={isPC}>
@@ -114,6 +114,7 @@ SearchBar.Box = styled.div`
     font-size: 100%;
     line-height: 1.15;
     color: #111;
+    width: 100%;
   }
   input::placeholder {
     color: #aaa;
