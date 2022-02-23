@@ -6,6 +6,16 @@ import SearchIcon from '../assets/icon_search.svg';
 
 const SearchArea = () => {
   const isPC = useMediaQuery({ query: '(min-width: 1040px)' });
+
+  // redux의 action -> state 변경하는 로직
+  const dispatch = useDispatch();
+  // input에 있는 값 가져오는 onChange 함수
+  const onchangeValue = (e) => {
+    dispatch(searchResult(e.target.value));
+  };
+  // 검색 버튼 누르면 동작하는 event함수
+  const onSearch = () => {};
+  
   return (
     <SearchAreaStyled isPC={isPC}>
       <Title className="title-responsive">
