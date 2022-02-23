@@ -1,12 +1,13 @@
+import PropTypes from 'prop-types';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Recommend from './Recommend';
-import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 
-const RecommendArea = ({ show }) => {
+const RecommendArea = ({ show, activeIndex }) => {
   const result = useSelector((state) => state.search.success);
   const isSearching = useSelector((state) => state.search.searching);
+
   if (isSearching) {
     return (
       <RecommendAreaStyled show={show}>
@@ -17,13 +18,17 @@ const RecommendArea = ({ show }) => {
               : '검색어 없음'
             : '검색 중...'}
         </Info>
-        {result &&
-          result.length > 0 &&
-          result.map((data, idx) => (
-            <Recommends key={idx}>
-              <Recommend id={data.id} content={data.name} />
-            </Recommends>
-          ))}
+        <Recommends>
+          {result &&
+            result.length > 0 &&
+            result.map((data, idx) => (
+              <Recommend
+                key={data.id}
+                content={data.name}
+                selected={idx === activeIndex}
+              />
+            ))}
+        </Recommends>
       </RecommendAreaStyled>
     );
   }
@@ -32,6 +37,7 @@ const RecommendArea = ({ show }) => {
 RecommendArea.propTypes = {
   show: PropTypes.bool,
   data: PropTypes.array,
+  activeIndex: PropTypes.number,
 };
 
 const RecommendAreaStyled = styled.div`

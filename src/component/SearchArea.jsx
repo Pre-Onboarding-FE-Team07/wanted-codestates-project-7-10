@@ -1,14 +1,17 @@
 import React, { useCallback } from 'react';
-import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
-import RecommendArea from './RecommendArea/RecommendArea';
+import styled from 'styled-components';
 import SearchIcon from '../assets/icon_search.svg';
-import { useDispatch } from 'react-redux';
-import { isSearching, searchResult } from '../redux/actions/search';
+import useUserInput from '../hooks/useUserInput';
+import { isSearching, searchRecommend } from '../redux/actions/search';
 import debounce from '../utilities/debounce';
+import RecommendArea from './RecommendArea/RecommendArea';
 
 const SearchArea = () => {
   const isPC = useMediaQuery({ query: '(min-width: 1040px)' });
+  const result = useSelector((state) => state.search.success);
+  const { onKeyDown, activeIndex, inputRef } = useUserInput(result);
 
   // redux의 action -> state 변경하는 로직
   const dispatch = useDispatch();
@@ -31,7 +34,7 @@ const SearchArea = () => {
     [debounceHandler]
   );
   const updateResult = useCallback((value) => {
-    dispatch(searchResult(value));
+    dispatch(searchRecommend(value));
   });
 
   // 검색 버튼 누르면 동작하는 event함수
@@ -49,8 +52,10 @@ const SearchArea = () => {
           {isPC && <SearchIcon />}
           <input
             type="text"
+            ref={inputRef}
             placeholder="질환명을 입력해 주세요. "
             onChange={onchangeValue}
+            onKeyDown={onKeyDown}
           />
           {!isPC && <SearchIcon onClick={onSearch} />}
         </SearchBar.Box>
@@ -61,7 +66,7 @@ const SearchArea = () => {
         )}
       </SearchBar>
       {/* show true/false에 따라 RecommendArea display 속성 변경 */}
-      <RecommendArea show />
+      <RecommendArea show activeIndex={activeIndex} />
     </SearchAreaStyled>
   );
 };
