@@ -13,112 +13,18 @@
   ---📁 utilities ➡ API 호출 최적화
 ```
 
-## Our Team
-<table>
-  <tr>
-     <td align="center">
-         <div>
-<img src="https://avatars.githubusercontent.com/u/21158729?v=4" alt="jinyongp" width="600"  height="150" />
-    </div>
-      <sub>
-      <a href="https://github.com/jinyongp">박진용[팀장]</a>
-      <br/>
-      <b>
-      개발환경 구축 및 배포
-      </b>
-      </sub>
-    </td>
-    </td>
-    <td align="center">
-  <div>
-  <img src="https://avatars.githubusercontent.com/u/85826563?v=4" alt="jeonghun10profile" width="600"  height="150"/>
-  </div>
-      <sub>
-      <a href="https://github.com/jeonghun10">
-      김정훈
-     </a> <br/>
-      <b>
-      키보드로 추천 검색어 이동
-      </b>
-      </sub>
-      </a>
-    </td>
-    <td align="center">
-  <div>
-  <img src="https://avatars.githubusercontent.com/u/52448114?v=4" alt="profile" width="600"  height="150"/>
-  </div>
-      <sub>
-      <a href="https://github.com/dev-seomoon">
-      문선경
-     </a> <br/>
-      <b>
-        UI 컴포넌트 구현</br>
-        (검색영역 구현)
-      </b>
-      </sub>
-      </a>
-    </td>
-    <td align="center">
-  <div>
-  <img src="https://avatars.githubusercontent.com/u/92790783?v=4" alt="profile" width="600"  height="150"/>
-  </div>
-      <sub>
-      <a href="https://github.com/Lela12">
-      심채윤
-     </a> <br/>
-      <b>
-        검색어 추천 API 호출 </br>
-        (axios로 이용)
-      </b>
-      </sub>
-      </a>
-    </td>
-    <td align="center">
-  <div>
-  <img src="https://avatars.githubusercontent.com/u/50618754?v=4" alt="profile" width="600"  height="150"/>
-  </div>
-      <sub>
-      <a href="https://github.com/ye-yo">
-      예효은
-     </a> <br/>
-      <b>
-        API 호출 최적화</br>
-        (Debounce 구현)
-      </b>
-      </sub>
-      </a>
-    </td>
-    <td align="center">
-  <div>
-  <img src="https://avatars.githubusercontent.com/u/59958929?v=4" alt="profile" width="600"  height="150"/>
-  </div>
-      <sub>
-      <a href="https://github.com/Lee-ye-ji">
-      이예지
-     </a> <br/>
-      <b>
-        검색어 추천 API 호출</br>
-        (Redux로 만들기)
-      </b>
-      </sub>
-      </a>
-    </td>
-    <td align="center">
-  <div>
-  <img src="https://avatars.githubusercontent.com/u/11373428?v=4" alt="profile" width="600"  height="150"/>
-  </div>
-      <sub>
-      <a href="https://github.com/exxocism">
-      최민우
-     </a> <br/>
-      <b>
-        API 호출 최적화 
-      </b>
-      </sub>
-      </a>
-    </td>
- </tr>
- <table>
+## 팀 멤버
+| 이름   | 직책 | 역할                 |
+| ----- | -- | -------------------- |
+| [⚡️박진용](https://github.com/jinyongp) | 팀장 | 개발환경 구축 및 배포  |
+| [✨김정훈](https://github.com/jeonghun10) | 팀원 | 키보드로 추천 검색어 이동 |
+| [🎨문선경](https://github.com/dev-seomoon) | 팀원 | UI 컴포넌트 구현 및 반응형 적용 |
+| [🚀심채윤](https://github.com/Lela12) | 팀원 | 검색어 추천 API 호출 - axios로 데이터 불러오기    |
+| [✏️예효은](https://github.com/ye-yo) | 팀원 | API 호출 최적화 - Debounce 구현 |
+| [🔨이예지](https://github.com/Lee-ye-ji) | 팀원 | 검색어 추천 API 호출 - Redux 사용  |
+| [🚚최민우](https://github.com/exxocism) | 팀원 | API 호출 최적화           |
+
+
 ##  문선경
 
 #### UI 컴포넌트 구현 (검색영역 구현)
