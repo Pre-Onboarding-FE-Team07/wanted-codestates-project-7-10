@@ -101,6 +101,7 @@ SearchBar.Box = styled.div`
     font-size: 100%;
     line-height: 1.15;
     color: #111;
+    width: 100%;
   }
   input::placeholder {
     color: #aaa;
