@@ -1,20 +1,33 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
 import RecommendArea from './RecommendArea/RecommendArea';
 import SearchIcon from '../assets/icon_search.svg';
 import { useDispatch } from 'react-redux';
 import { searchResult } from '../redux/actions/search';
+import debounce from '../utilities/debounce';
 
 const SearchArea = () => {
   const isPC = useMediaQuery({ query: '(min-width: 1040px)' });
 
   // redux의 action -> state 변경하는 로직
   const dispatch = useDispatch();
+  const debounceHandler = useCallback(
+    debounce((value) => updateResult(value), 500),
+    []
+  );
+
   // input에 있는 값 가져오는 onChange 함수
-  const onchangeValue = (e) => {
-    dispatch(searchResult(e.target.value));
-  };
+  const onchangeValue = useCallback(
+    (e) => {
+      debounceHandler(e.target.value);
+    },
+    [debounceHandler]
+  );
+
+  const updateResult = useCallback((value) => {
+    dispatch(searchResult(value));
+  });
 
   return (
     <SearchAreaStyled isPC={isPC}>
@@ -94,7 +107,6 @@ SearchBar.Box = styled.div`
     font-size: 100%;
     line-height: 1.15;
     color: #111;
-    width: 100%;
   }
   input::placeholder {
     color: #aaa;
