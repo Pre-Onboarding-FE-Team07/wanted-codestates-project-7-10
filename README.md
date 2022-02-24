@@ -1,4 +1,5 @@
 # 검색어 추천이 있는 검색창 만들기
+![검색어 추천이 있는 검색창 미리보기](https://user-images.githubusercontent.com/50618754/155432551-0090f0ee-fa9f-4080-a191-0b50c9e3f0ea.gif)
 
 ## 실행 방법
 * 배포 사이트
