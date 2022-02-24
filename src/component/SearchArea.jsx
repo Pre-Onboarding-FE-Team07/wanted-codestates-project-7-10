@@ -24,7 +24,7 @@ const SearchArea = () => {
   const onchangeValue = useCallback(
     (e) => {
       if (e.target.value.replace(/\s/gi, '') === '') {
-        dispatch(searchRecommend(null));
+        debounceHandler(null);
         dispatch(isSearching(false));
       } else {
         dispatch(isSearching(true));
@@ -33,13 +33,12 @@ const SearchArea = () => {
     },
     [debounceHandler]
   );
-
   const updateResult = useCallback((value) => {
     dispatch(searchRecommend(value));
   });
 
   // 검색 버튼 누르면 동작하는 event함수
-  const onSearch = () => {};
+  const onSearch = () => { };
 
   return (
     <SearchAreaStyled isPC={isPC}>

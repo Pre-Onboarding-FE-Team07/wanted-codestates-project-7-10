@@ -2,20 +2,28 @@ import axios from '../../utilities/axiosCached';
 import { IS_SEARCHING, SEARCH_RECOMMEND, SEARCH_RESULT } from './types';
 
 export const searchRecommend = async (searchValue) => {
-  const request = await axios
-    .get(
-      `https://api.clinicaltrialskorea.com/api/v1/search-conditions/?name=${searchValue}`
-    )
-    .then((response) => response.data.slice(0, 7))
-    .catch((err) => console.log(err));
+  if (searchValue) {
+    const request = await axios
+      .get(
+        `https://api.clinicaltrialskorea.com/api/v1/search-conditions/?name=${searchValue}`
+      )
+      .then((response) => response.data.slice(0, 7))
+      .catch((err) => console.log(err));
+    return {
+      type: SEARCH_RECOMMEND,
+      payload: request,
+    };
+  }
+  else {
+    return {
+      type: SEARCH_RECOMMEND,
+      payload: null,
+    }
+  }
 
-  return {
-    type: SEARCH_RECOMMEND,
-    payload: request,
-  };
 };
 
-export const isSearching = async (state) => {
+export const isSearching = (state) => {
   return {
     type: IS_SEARCHING,
     payload: state,
